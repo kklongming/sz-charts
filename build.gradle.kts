@@ -6,12 +6,14 @@
 
 plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin on the JVM.
-    id("org.jetbrains.kotlin.jvm").version("1.3.20")
+    id("org.jetbrains.kotlin.jvm").version("1.3.21")
 }
 
 repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
+    mavenLocal()
+    mavenCentral()
     jcenter()
 }
 
@@ -24,4 +26,10 @@ dependencies {
 
     // Use the Kotlin JUnit integration.
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
+
+    implementation("org.jtwig:jtwig-core:5.87.0.RELEASE")
+
+    configurations.all {
+        this.exclude(group = "org.slf4j", module = "slf4j-log4j12")
+    }
 }
