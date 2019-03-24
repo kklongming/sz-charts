@@ -83,7 +83,7 @@ abstract class Color {
     }
 }
 
-class RgbaColor(val R: Int, val G: Int, val B: Int, val Alpha: Double = 1.0) : Color() {
+class RgbaColor(val R: Int, val G: Int, val B: Int, var Alpha: Double = 1.0) : Color() {
 
     init {
         checkColorBounds(R)
@@ -113,6 +113,12 @@ class RgbaColor(val R: Int, val G: Int, val B: Int, val Alpha: Double = 1.0) : C
         }
 
     }
+
+    fun alpha(value: Double): RgbaColor {
+        checkAlphaBounds(value)
+        Alpha = value
+        return this
+    }
 }
 
 class HexColor(val hexColor: String) : Color() {
@@ -122,7 +128,7 @@ class HexColor(val hexColor: String) : Color() {
     }
 
     private fun checkHexColorStr(hexColor: String) {
-        if (hexColor.matches("^#[0-9a-fA-F]{6}$".toRegex()).not()) {
+        if (hexColor.matches("^#[0-9a-fA-F]{6}$".toRegex()).not() && hexColor.matches("^#[0-9a-fA-F]{3}$".toRegex()).not()) {
             throw IllegalArgumentException("""Invalid hex color format: $hexColor.""")
         }
     }

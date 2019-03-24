@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="{{ title }}" content="width=device-width, initial-scale=1">
+    {% for src in baseScripts %}
+    <script src="{{ src }}"></script>
+    {% endfor %}
+
+    {% for src in extraScripts %}
+    <script src="{{ src }}"></script>
+    {% endfor %}
+
+    {% for src in modulesScripts %}
+    <script src="{{ src }}"></script>
+    {% endfor %}
+
+    {% for src in plugins %}
+    <script src="{{ src }}"></script>
+    {% endfor %}
+
+    {% if (length(themeScript) > 0)  %}
+    <script src="{{ themeScript }}"></script>
+    {% endif %}
+</head>
+<body>
+<div id="container" style="{{ sizeStyle }}">
+</div>
+</body>
+</html>
+
+<script>
+function setupCharts() {
+    var options = {{ options }};
+    var chart = Highcharts.chart('container', options);
+}
+
+window.onload = function () {
+    {% if (length(themeJsonScript) > 0)  %}
+    fetch('{{ themeJsonScript }}').then(function (response) {
+            if (response.ok) {
+                response.json().then(function (jsonData) {
+                    Highcharts.theme = jsonData;
+                    Highcharts.setOptions(Highcharts.theme);
+                    setupCharts();
+                });
+            } else {
+                setupCharts();
+            }
+        });
+    {% else %}
+    setupCharts();
+    {% endif %}
+};
+</script>
