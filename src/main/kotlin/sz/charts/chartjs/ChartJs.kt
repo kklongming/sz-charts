@@ -8,7 +8,7 @@ import sz.charts.sizeStyle
 //
 // Created by kk on 2019-03-21.
 //
-object Chartjs {
+object ChartJs {
 
     var cdn = "https://cdn.bootcss.com/Chart.js/2.7.3/Chart.min.js"
 

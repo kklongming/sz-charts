@@ -54,7 +54,7 @@ dependencies {
 
     implementation("org.jtwig:jtwig-core:5.87.0.RELEASE")
 
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.7") {
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8") {
         this.exclude(group = "org.jetbrains.kotlin")
     }
     
