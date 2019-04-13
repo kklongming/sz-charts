@@ -44,7 +44,7 @@ compileKotlin.kotlinOptions {
 dependencies {
     // Use the Kotlin JDK 8 standard library.
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.3.30")
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
 
     // Use the Kotlin test library.
     testImplementation("org.jetbrains.kotlin:kotlin-test")
@@ -52,17 +52,17 @@ dependencies {
     // Use the Kotlin JUnit integration.
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
 
-    implementation("org.jtwig:jtwig-core:5.87.0.RELEASE")
+    api("org.jtwig:jtwig-core:5.87.0.RELEASE")
 
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8") {
-        this.exclude(group = "org.jetbrains.kotlin")
-    }
-    
-    implementation("io.vertx:vertx-lang-kotlin:3.6.3") {
+    api("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8") {
         this.exclude(group = "org.jetbrains.kotlin")
     }
 
-    implementation("org.jodd:jodd-core:5.0.5")
+    api("io.vertx:vertx-lang-kotlin:3.6.3") {
+        this.exclude(group = "org.jetbrains.kotlin")
+    }
+
+    api("org.jodd:jodd-core:5.0.11")
 
     configurations.all {
         this.exclude(group = "org.slf4j", module = "slf4j-log4j12")
