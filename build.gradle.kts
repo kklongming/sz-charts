@@ -8,7 +8,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin on the JVM.
-    id("org.jetbrains.kotlin.jvm").version("1.3.30")
+    id("org.jetbrains.kotlin.jvm").version("1.3.31")
     id("maven-publish")
 }
 
@@ -29,7 +29,7 @@ publishing {
     publications {
         create<MavenPublication>("maven") {
             groupId = "com.github.kklongming"
-
+            version = "1.0.0-dev"
             from(components["java"])
             artifact(tasks["sourcesJar"])
         }
@@ -43,8 +43,8 @@ compileKotlin.kotlinOptions {
 
 dependencies {
     // Use the Kotlin JDK 8 standard library.
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.30")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.3.30")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.31")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.3.31")
 
     // Use the Kotlin test library.
     testImplementation("org.jetbrains.kotlin:kotlin-test")
