@@ -8,7 +8,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin on the JVM.
-    id("org.jetbrains.kotlin.jvm").version("1.3.31")
+    id("org.jetbrains.kotlin.jvm").version("1.3.40")
     id("maven-publish")
 }
 
@@ -34,6 +34,17 @@ publishing {
             artifact(tasks["sourcesJar"])
         }
     }
+    
+    repositories {
+        var myRepo = "/Users/kk/ssdwork/github/kklongming.github.io/repository"
+        System.getProperty("myRepo")?.apply {
+            myRepo = this
+        }
+        maven {
+            name = "myRepo"
+            url = uri("file://$myRepo")
+        }
+    }
 }
 
 val compileKotlin: KotlinCompile by tasks
@@ -43,8 +54,8 @@ compileKotlin.kotlinOptions {
 
 dependencies {
     // Use the Kotlin JDK 8 standard library.
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.31")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.3.31")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.40")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.3.40")
 
     // Use the Kotlin test library.
     testImplementation("org.jetbrains.kotlin:kotlin-test")
