@@ -8,7 +8,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin on the JVM.
-    id("org.jetbrains.kotlin.jvm").version("1.3.41")
+    id("org.jetbrains.kotlin.jvm").version("1.3.50")
     id("maven-publish")
 }
 
@@ -54,8 +54,8 @@ compileKotlin.kotlinOptions {
 
 dependencies {
     // Use the Kotlin JDK 8 standard library.
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.41")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.3.41")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.50")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.3.50")
 
     // Use the Kotlin test library.
     testImplementation("org.jetbrains.kotlin:kotlin-test")
@@ -69,7 +69,7 @@ dependencies {
         this.exclude(group = "org.jetbrains.kotlin")
     }
 
-    api("io.vertx:vertx-lang-kotlin:3.6.3") {
+    api("io.vertx:vertx-lang-kotlin:3.8.1") {
         this.exclude(group = "org.jetbrains.kotlin")
     }
 
