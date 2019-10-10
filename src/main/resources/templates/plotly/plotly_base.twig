@@ -1,0 +1,24 @@
+<!--suppress JSAnnotator -->
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <script src="{{ cdn }}"></script>
+</head>
+
+<body>
+<div id="graphDiv" style="{{ sizeStyle }}">
+</div>
+</body>
+
+<script>
+    let trace_data = {{ trace_data }};
+    let layout = {{ layout }};
+    let config = {{ config }};
+    window.onload = function () {
+        var graphDiv = document.getElementById('graphDiv');
+        Plotly.newPlot(graphDiv, trace_data, layout, config);
+    };
+</script>
+
+</html>

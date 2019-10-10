@@ -69,7 +69,7 @@ dependencies {
         this.exclude(group = "org.jetbrains.kotlin")
     }
 
-    api("io.vertx:vertx-lang-kotlin:3.8.1") {
+    api("io.vertx:vertx-lang-kotlin:3.8.2") {
         this.exclude(group = "org.jetbrains.kotlin")
     }
 
